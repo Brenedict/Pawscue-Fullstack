@@ -11,7 +11,7 @@ VALUES
 ("ADP-0005", "Lopez, Maria, T.", "0944-555-6666", "maria.lopez@example.com", "Homemaker", 0, null, null, null, 8, "Self"),
 ("ADP-0006", "Dela Cruz, Jose, F.", "0955-666-7777", "jose.delacruz@example.com", "Working", 10, "0955-777-8888", "Global Corp", "789 Business Park, Pasig", 7, "Spouse"),
 ("ADP-0007", "Fernandez, Carla, M.", "0966-777-8888", "carla.fernandez@example.com", "Working", 7, "0966-888-9999", "Creative Inc", "321 Art St, Makati", 4, "Self"),
-("ADP-0008", "Torres, Luis, G.", "0977-888-9999", "luis.torres@example.com", "Working", 6, "0977-999-0000", "Finance Ltd", "654 Money Ave, Manila", 5, "Roommate");
+("ADP-0008", "Torres, Luis, G.", "0977-888-9999", "luis.torres@example.com", "Working", 6, "0977-999-0000", "Finance Ltd", "654 Money Ave, Manila", 5, "Roommate"),
 
 ("ADP-0009", "Navarro, Elise, B.", "0918-555-9012", "elise.navarro@example.com", "Working", 8, "0918-666-1122", "BrightStart Inc", "230 Innovation St, Taguig", 6, "Self"),
 ("ADP-0010", "Jimenez, Marco, D.", "0922-234-6677", "marco.jimenez@example.com", "Attending School", 4, "0922-888-1234", "NU - College of Engineering", "567 School Rd, Manila", 3, "Roommate"),
@@ -36,15 +36,15 @@ VALUES
 ("HOME-0001", "1100", "123 Main St", "Manila", "NCR", "Own", "ALLOWED", true, 2, "Indoors"),
 ("HOME-0002", "1114", "41 Tirad Pass", "Quezon City", "NCR", "Rent", "ALLOWED", true, 1, "Indoors"),
 ("HOME-0003", "1123", "789 College Rd", "Quezon City", "NCR", "Rent", "NOT ALLOWED", false, 0, "Outdoors"),
-("HOME-0004", "1134", "456 Business Park", "Pasig", "NCR", "Own", "ALLOWED", true, 3, "Both"),
+("HOME-0004", "1134", "456 Business Park", "Pasig", "NCR", "Own", "ALLOWED", true, 3, "Indoors"),
 ("HOME-0005", "1145", "321 Art St", "Makati", "NCR", "Rent", "ALLOWED", true, 1, "Indoors"),
 ("HOME-0006", "1156", "654 Money Ave", "Manila", "NCR", "Own", "ALLOWED", true, 0, "Indoors"),
 ("HOME-0007", "1167", "987 Garden St", "Pasig", "NCR", "Rent", "NOT ALLOWED", false, 2, "Outdoors"),
-("HOME-0008", "1178", "159 River Rd", "Makati", "NCR", "Own", "ALLOWED", true, 4, "Both");
+("HOME-0008", "1178", "159 River Rd", "Makati", "NCR", "Own", "ALLOWED", true, 4, "Indoors"),
 
 ("HOME-0009", "1189", "230 Innovation St", "Taguig", "NCR", "Rent", "ALLOWED", true, 0, "Indoors"),
 ("HOME-0010", "1190", "567 School Rd", "Manila", "NCR", "Rent", "ALLOWED", false, 1, "Indoors"),
-("HOME-0011", "1191", "890 Sunset Blvd", "Parañaque", "NCR", "Own", "ALLOWED", true, 0, "Both");
+("HOME-0011", "1191", "890 Sunset Blvd", "Parañaque", "NCR", "Own", "ALLOWED", true, 0, "Indoors");
 
 -- 4. Adopter FK updates
 UPDATE pawscueadoptions.adopter SET AdopterAddressId = "HOME-0001", SpouseId = "AS-0001" WHERE AdopterId = "ADP-0001";
@@ -72,7 +72,7 @@ VALUES
 ("PET-0007", "Poodle", 6, "Spayed", 4, "Alive", true, "ADP-0006"),
 ("PET-0008", "Chihuahua", 3, "None", 3, "Alive", false, "ADP-0007"),
 ("PET-0009", "Labrador", 8, "Neutered", 7, "Alive", true, "ADP-0008"),
-("PET-0010", "Shih Tzu", 1, "Spayed", 1, "Alive", true, "ADP-0008");
+("PET-0010", "Shih Tzu", 1, "Spayed", 1, "Alive", true, "ADP-0008"),
 
 -- More pets per adopter, varied counts
 
@@ -103,7 +103,7 @@ VALUES
 
 -- ADP-0008 now has 3 pets
 ("PET-0022", "German Shepherd", 4, "Neutered", 4, "Alive", true, "ADP-0008"),
-("PET-0023", "Turtle", 12, "None", 12, "Alive", false, "ADP-0008");
+("PET-0023", "Turtle", 12, "None", 12, "Alive", false, "ADP-0008"),
 
 ("PET-0024", "Mini Pinscher", 4, "Spayed", 3, "Alive", true, "ADP-0009"),
 ("PET-0025", "British Shorthair", 2, "None", 2, "Alive", false, "ADP-0010"),
@@ -121,7 +121,7 @@ VALUES
 ("HA-0006", "Fernandez, Jose R.", false, "0944-777-8888", "Creative Inc", "321 Art St, Makati", "ADP-0005"),
 ("HA-0007", "Torres, Maria S.", true, null, null, null, "ADP-0006"),
 ("HA-0008", "Reyes, Pedro L.", false, "0955-999-0000", "Global Corp", "789 Business Park, Pasig", "ADP-0007"),
-("HA-0009", "Gomez, Carla M.", false, "0966-111-2222", "Finance Ltd", "654 Money Ave, Manila", "ADP-0008");
+("HA-0009", "Gomez, Carla M.", false, "0966-111-2222", "Finance Ltd", "654 Money Ave, Manila", "ADP-0008"),
 
 -- More household adults per adopter, varied counts
 
@@ -152,9 +152,22 @@ VALUES
 ("HA-0021", "Yap, Carla V.", true, null, null, null, "ADP-0007"),
 
 -- ADP-0008 now has 2 adults
-("HA-0022", "Ortiz, Ruben D.", false, "0922-333-9876", "LogisticsPro", "Sta. Mesa, Manila", "ADP-0008");
+("HA-0022", "Ortiz, Ruben D.", false, "0922-333-9876", "LogisticsPro", "Sta. Mesa, Manila", "ADP-0008"),
 
 ("HA-0023", "Serrano, Julia M.", false, "0917-445-1233", "BrightStart Inc", "230 Innovation St, Taguig", "ADP-0009"),
 ("HA-0024", "Tan, Henry B.", true, null, null, null, "ADP-0010"),
 ("HA-0025", "Castillo, Pedro A.", false, null, null, null, "ADP-0011");
+
+INSERT INTO pawscueadoptions.appdata (userId, username, email, passwordHash, registrationDate, adopterId) VALUES
+('USER-0000', 'GarciaJuan', 'juan.garcia@example.com', 'juan1234', CURDATE(), 'ADP-0001'),
+('USER-0001', 'LimlinganRichard', 'richardtetsuya@hotmail.com', 'richard1234', CURDATE(), 'ADP-0002'),
+('USER-0002', 'ReyesAna', 'ana.reyes@example.com', 'ana1234', CURDATE(), 'ADP-0003'),
+('USER-0003', 'SantosPedro', 'pedro.santos@example.com', 'pedro1234', CURDATE(), 'ADP-0004'),
+('USER-0004', 'LopezMaria', 'maria.lopez@example.com', 'maria1234', CURDATE(), 'ADP-0005'),
+('USER-0005', 'DelaCruzJose', 'jose.delacruz@example.com', 'jose1234', CURDATE(), 'ADP-0006'),
+('USER-0006', 'FernandezCarla', 'carla.fernandez@example.com', 'carla1234', CURDATE(), 'ADP-0007'),
+('USER-0007', 'TorresLuis', 'luis.torres@example.com', 'luis1234', CURDATE(), 'ADP-0008'),
+('USER-0008', 'NavarroElise', 'elise.navarro@example.com', 'elise1234', CURDATE(), 'ADP-0009'),
+('USER-0009', 'JimenezMarco', 'marco.jimenez@example.com', 'marco1234', CURDATE(), 'ADP-0010'),
+('USER-0010', 'CastilloAndrea', 'andrea.castillo@example.com', 'andrea1234', CURDATE(), 'ADP-0011');
 

@@ -128,5 +128,14 @@ ADD CONSTRAINT fk_pets_to_adopter
 FOREIGN KEY(AdopterId) REFERENCES Adopter(AdopterId)
 ON DELETE CASCADE;
 
+CREATE TABLE `appdata` (
+  `userid` varchar(45) NOT NULL,
+  `username` varchar(45) NOT NULL,
+  `email` varchar(45) NOT NULL,
+  `passwordHash` varchar(45) NOT NULL,
+  `registrationDate` date NOT NULL,
+  `adopterId` varchar(45) DEFAULT NULL,
+  PRIMARY KEY (`userid`)
+)
 
 
