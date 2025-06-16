@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PawscuePH</title>
+    <link rel="stylesheet" href="SignIn.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+    />
+    <link rel = "stylesheet" href ="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+  </head>
+  <body>
+    <header>
+      <nav class="navbar">
+        <ul class="nav-menu">
+          <li><a href="HomePage.html" class="nav-link">Home</a></li>
+          <li><a href="OurDogs.html" class="nav-link">Our Dogs</a></li>
+          <li><a href="AdoptNow.html" class="nav-link">Adopt Now</a></li>
+          <li><a href="AboutUs.html" class="nav-link">About Us</a></li>
+        </ul>
+
+        <ul class="nav-user">
+          <li><a href="SignIn.html" class="nav-link active">Sign In</a></li>
+          <li><a href="LogIn.html" class="nav-link">Login</a></li>
+        </ul>
+        <div class="nav-logo">
+          <img src="Images/logo-pawscue.png" class="logo-img" alt="Logo" />
+        </div>
+        </nav>
+      </header>
+
+      <main class="center-container">
+    <div class="wrapper"> 
+        <div class="form-header">
+        <div class="titles">
+            <div class="title-login">Register</div>
+        </div>
+        </div>
+        <form action="#" class="login form" autocomplete="off">
+            <div class="input-box">
+            <input type="text" class="input-field" id="reg-user" placeholder=" " required>
+            <label for="reg-user" class="label">Username</label>
+            <i class='bx bx-user icon' ></i>
+            </div>
+
+            <div class="input-box">
+            <input type="text" class="input-field" id="reg-email" placeholder=" " required>
+            <label for="reg-email" class="label">Email</label>
+            <i class='bx bx-envelope icon'></i>
+            </div>
+
+            <div class="input-box">
+            <input type="password" class="input-field" id="reg-password" placeholder=" " required>
+            <label for="reg-password" class="label">Password</label>
+            <i class='bx bx-lock-alt icon'></i>
+            </div>
+
+            <div class="form-cols">
+                <div class="col-1">
+                    <input type="checkbox" id="Agree">
+                    <label for="agree"> I agree to the terms & conditions </label>
+                </div>
+                <div class="col-2"></div>
+            </div>
+            <div class="input-box">
+            <button class ="btn-submit" id="SignInBtn">Sign In<i class='bx bx-log-out' ></i></button>
+            </div>
+            <div class="switch-form">
+                <span>Already have an account? <a href = "Login.html">Login</a></span>
+            </div>
+        </form>
+    </div>
+    </div>
+    </main>
+
+    <footer class="footer">
+      <div class="footer-line top-line"></div>
+
+      <div class="footer-upper">
+        <div class="footer-logo">
+          <img src="Images/logo name.png" alt="Pawscue PH Logo" />
+          <p class="tagline"><em>Every paw deserves a <span>second chance.</span></em></p>
+        </div>
+      </div>
+
+      <div class="footer-lower">
+        <div class="footer-left">
+          <div class="footer-links">
+            <a href="#">Donate</a> |
+            <a href="#">Services</a> |
+            <a href="#">FAQs</a> |
+            <a href="#">Terms</a> |
+            <a href="#">Privacy Policy</a>
+          </div>
+          <p class="copyright">Copyright © 2025 <strong>PAWSCUE PH</strong></p>
+        </div>
+
+        <div class="footer-right">
+          <p>pawscueph@gmail.com</p>
+          <div class="social-icons">
+            <a href="#"><img src="Images/fb.png" alt="Facebook" /></a>
+            <a href="#"><img src="Images/mail.png" alt="Email" /></a>
+            <a href="#"><img src="Images/youtube.png" alt="YouTube" /></a>
+            <a href="#"><img src="Images/ig.png" alt="Instagram" /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-line bottom-line"></div>
+    </footer>  
+    <script src="signin.js"></script>
+</body>
+</html>

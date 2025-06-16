@@ -1,0 +1,144 @@
+{
+  "users": [
+    {
+      "userId": "user_12345",
+      "username": "john_doe",
+      "email": "john.doe@example.com",
+      "passwordHash": "hashed_password_example_1",
+      "registrationDate": "2024-01-15T10:00:00Z"
+    },
+    {
+      "userId": "user_67890",
+      "username": "jane_smith",
+      "email": "jane.smith@example.com",
+      "passwordHash": "hashed_password_example_2",
+      "registrationDate": "2024-03-20T14:30:00Z"
+    }
+  ],
+  "login_attempts": [
+    {
+      "attemptId": "login_001",
+      "userId": "user_12345",
+      "emailAttempted": "john.doe@example.com",
+      "timestamp": "2024-06-12T08:00:00Z",
+      "success": true,
+      "ipAddress": "192.168.1.100"
+    },
+    {
+      "attemptId": "login_002",
+      "userId": null,
+      "emailAttempted": "invalid@example.com",
+      "timestamp": "2024-06-12T08:01:00Z",
+      "success": false,
+      "ipAddress": "192.168.1.101"
+    }
+  ],
+  "application_submissions": [
+    {
+      "submissionId": "app_001",
+      "userId": "user_12345",
+      "timestamp": "2024-06-12T10:15:30Z",
+      "adopter": {
+        "adopterId": "ADP-0001",
+        "adopterName": "Garcia, Juan, M.",
+        "contactNum": "0917-111-2222",
+        "emailAddress": "juan.garcia@example.com",
+        "addressDetails": {
+          "adopterAddressId": "HOME-0001",
+          "zipcode": "1100",
+          "homeAddress": "123 Main St",
+          "city": "Manila",
+          "state": "NCR",
+          "housingStatus": "Own",
+          "homePetPolicy": "ALLOWED",
+          "windowScreens": true,
+          "homeChildrenNum": 2,
+          "petLivingArea": "Indoors"
+        },
+        "employmentStatus": "Working",
+        "workingHrs": 9,
+        "workContactNum": "0917-222-3333",
+        "employerName": "Tech Solutions",
+        "workAddress": "123 Main St, Manila",
+        "petAloneHours": 5,
+        "petCareTaker": "Self",
+        "spouse": {
+          "spouseId": "SP-0001",
+          "adopterId": "ADP-0001",
+          "spouseName": "Garcia, Maria, S.",
+          "spouseEmployerName": "Tech Solutions",
+          "spouseWorkContactNum": "0917-333-4444",
+          "spouseCompanyAddress": "123 Main St, Manila",
+          "spouseWorkingHours": 8
+        }
+      },
+      "adopterPets": [
+        {
+          "petId": "PET-0001",
+          "adopterId": "ADP-0001",
+          "petBreed": "Aspin",
+          "petAge": 10,
+          "petSpayNeuterStatus": "None",
+          "petYearsOwned": 10,
+          "petCurrentStatus": "Alive",
+          "petVaccination": false
+        },
+        {
+          "petId": "PET-0002",
+          "adopterId": "ADP-0001",
+          "petBreed": "Golden Retriever",
+          "petAge": 5,
+          "petSpayNeuterStatus": "Spayed",
+          "petYearsOwned": 3,
+          "petCurrentStatus": "Alive",
+          "petVaccination": true
+        }
+      ],
+      "householdAdults": [
+        {
+          "householdAdultId": "HHAD-0001",
+          "adopterId": "ADP-0001",
+          "adultName": "San Juan, Mario N.",
+          "adultAllergy": true,
+          "adultWorkContactNum": null,
+          "adultEmployerName": null,
+          "adultCompanyAddress": null,
+          "adultWorkingHours": null
+        }
+      ]
+    },
+    {
+      "submissionId": "app_002",
+      "userId": "user_67890",
+      "timestamp": "2024-06-12T11:00:00Z",
+      "adopter": {
+        "adopterId": "ADP-0002",
+        "adopterName": "King, Arthur L.",
+        "contactNum": "0917-555-6666",
+        "emailAddress": "arthur.king@example.com",
+        "addressDetails": {
+          "adopterAddressId": "HOME-0002",
+          "zipcode": "1000",
+          "homeAddress": "456 Oak Ave",
+          "city": "Quezon City",
+          "state": "NCR",
+          "housingStatus": "Rent",
+          "homePetPolicy": "ALLOWED",
+          "windowScreens": true,
+          "homeChildrenNum": 0,
+          "petLivingArea": "Indoors"
+        },
+        "employmentStatus": "Working",
+        "workingHrs": 8,
+        "workContactNum": "0917-777-8888",
+        "employerName": "Camelot Enterprises",
+        "workAddress": "789 Castle Rd, Quezon City",
+        "petAloneHours": 4,
+        "petCareTaker": "Self",
+        "spouse": null
+      },
+      "adopterPets": [],
+      "householdAdults": []
+    }
+  ]
+}

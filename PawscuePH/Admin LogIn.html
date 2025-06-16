@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Login - PawscuePH</title>
+    <link rel="stylesheet" href="Admin LogIn.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css">
+</head>
+<body>
+    <main class="center-container">
+      <div class="wrapper"> 
+        <div class="form-header">
+          <div class="titles">
+            <div class="title-login">Admin Login</div>
+          </div>
+        </div>
+        <form action="#" class="login form" autocomplete="off" id="loginForm">
+          <div class="input-box">
+            <input type="text" class="input-field" id="log-username" placeholder=" " required>
+            <label for="log-username" class="label">Username</label>
+            <i class='bx bx-user icon'></i>
+          </div>
+
+          <div class="input-box">
+            <input type="password" class="input-field" id="log-password" placeholder=" " required>
+            <label for="log-password" class="label">Password</label>
+            <i class='bx bx-lock-alt icon'></i>
+          </div>
+
+          <div class="form-cols">
+            <div class="col-1"></div>
+            <div class="col-2">
+              <a href="#" id="forgotPasswordLink">Forgot password?</a>
+            </div>
+          </div>
+          <div class="input-box">
+            <button type="submit" class="btn-submit" id="LogInBtn">Login <i class='bx bx-log-in' ></i></button>
+          </div>
+        </form>
+      </div>
+    </main>
+
+    <!-- Forgot Password Modal -->
+    <div id="forgotPasswordModal" class="modal-overlay" style="display:none;">
+      <div class="modal-content">
+        <span class="close-button" id="closeForgotModal">&times;</span>
+        <h2>Forgot Password</h2>
+        <form id="forgotPasswordForm">
+          <p class="modal-message">Enter your username to receive a password reset link.</p>
+          
+          <div class="input-box">
+            <input type="text" class="input-field" id="forgot-username" placeholder=" " required>
+            <label for="forgot-username" class="label">Username</label>
+            <i class='bx bx-user icon'></i>
+          </div>
+          
+          <div class="modal-actions">
+            <button type="submit" class="action-btn apply-btn" id="sendResetLinkBtn">Send Reset Link</button>
+            <button type="button" class="action-btn clear-btn" id="cancelForgotModal">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Message Box for notifications (e.g., success/error) -->
+    <div id="messageBox" class="message-box" style="display:none;"></div>
+
+    <script src="Admin LogIn.js"></script>
+</body>
+</html>

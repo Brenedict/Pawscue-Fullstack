@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawscuePH</title>
+    <link rel="stylesheet" href="HomePage.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+          <ul class="nav-menu">
+            <li><a href="HomePage.html" class="nav-link active">Home</a></li>
+            <li><a href="OurDogs.html" class="nav-link">Our Dogs</a></li>
+            <li><a href="AdoptNow.html" class="nav-link">Adopt Now</a></li>
+            <li><a href="AboutUs.html" class="nav-link">About Us</a></li>
+          </ul>
+      
+          <div class="nav-logo">
+            <img src="Images/logo-pawscue.png" class="logo-img" onclick=resetLocalStorage() alt="Logo">
+          </div>
+      
+        <ul class="nav-user">
+          <li><a href="SignIn.html" class="nav-link">Sign In</a></li>
+          <li><a href="LogIn.html" class="nav-link">Login</a></li>
+          <li id="logoutContainer" class="hidden"><a href="#" class="nav-link" id="logoutBtn">Logout</a></li>
+        </ul>
+      </nav>
+      </header>
+      <main>
+        <section class="intro-page">
+          <div class="intro-content">
+            <div class="intro-detail">
+              <h1 class="title">PAWSCUE</h1>
+              <h2 class="subtitle">NDD ADOPTION</h2>
+              <p class="description">This website acts as a vital bridge between these loyal canines and compassionate families ready to provide the care and comfort they truly deserve.</p>
+
+              <div class="buttons">
+                <a href="AboutUs.html" class="learn-more-button">LEARN MORE<i class="bi bi-arrow-right" aria-hidden="true"></i></a>
+              <a href="#support-paw-section" class="donate-button">DONATE NOW<i class="bi bi-arrow-right" aria-hidden="true"></i></a> </div>
+            </div>
+            <div class="dog-image">
+              <img src="Images/home page.png" alt="German Shepherd dog" class="hero-image">
+            </div>
+          </div>
+        </section>
+
+        <section class="goals-section">
+          <h2 class="section-title">GOALS:</h2>
+          <div class="carousel-wrapper">
+            <div class="carousel-container">
+              <div class="carousel-slide">
+                <img src="Images/first-goal.png" alt="Dog in kennel, representing rescue">
+              </div>
+              <div class="carousel-slide">
+                <img src="Images/second-goal.png" alt="Person playing with a Rottweiler dog">
+              </div>
+              <div class="carousel-slide">
+                <img src="Images/third-goal.png" alt="People interacting with a dog, representing pet rescuers">
+              </div>
+            </div>
+
+            <div class="carousel-arrows">
+              <button class="carousel-arrow left" id="prevSlide"><i class="bi bi-arrow-left"></i></button>
+              <button class="carousel-arrow right" id="nextSlide"><i class="bi bi-arrow-right"></i></button>
+            </div>
+
+          <div class="carousel-pagination" id="carouselPagination"></div>
+        </section>
+
+        <section class="support-paw-section" id="support-paw-section">
+          <div class="support-paw-container">
+            <h2 class="support-paw-title">SUPPORT A PAW</h2>
+            <p class="support-paw-description">Every pet deserves a loving home — and with your help, we can make that happen. Your monetary donation goes directly toward food, medical care, and safe shelter for our animals in need</p>
+            <div class="qr-codes">
+              <div class="qr-item">
+                <div class="qr-box">
+                  <img src="Images/gcash_qr.png" alt="GCash QR Code">
+                </div>
+                <p class="qr-details"><strong>GCASH:</strong> 09XX-XXX-XXXX<br>PAWSCUE PH</p>
+              </div>
+              <div class="qr-item">
+                <div class="qr-box">
+                  <img src="Images/bpi_qr.png" alt="BPI QR Code">
+                </div>
+                <p class="qr-details"><strong>BPI:</strong> XXXX-XXXX-XX<br>PAWSCUE PH</p>
+              </div>
+              <div class="qr-item">
+                <div class="qr-box">
+                  <img src="Images/paypal_qr.png" alt="PayPal QR Code">
+                </div>
+                <p class="qr-details"><strong>PAYPAL:</strong> Pawscue PH</p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+    </main>
+    <footer class="footer">
+      <div class="footer-line top-line"></div>
+
+      <div class="footer-upper">
+        <div class="footer-logo">
+          <img src="Images/logo name.png" alt="Pawscue PH Logo" />
+          <p class="tagline"><em>Every paw deserves a <span>second chance.</span></em></p>
+        </div>
+      </div>
+
+      <div class="footer-lower">
+        <div class="footer-left">
+          <div class="footer-links">
+            <a href="#">Donate</a> |
+            <a href="#">Services</a> |
+            <a href="#">FAQs</a> |
+            <a href="#">Terms</a> |
+            <a href="#">Privacy Policy</a>
+          </div>
+          <p class="copyright">Copyright © 2025 <strong>PAWSCUE PH</strong></p>
+        </div>
+
+        <div class="footer-right">
+          <p>pawscueph@gmail.com</p>
+          <div class="social-icons">
+            <a href="#"><img src="Images/fb.png" alt="Facebook" /></a>
+            <a href="#"><img src="Images/mail.png" alt="Email" /></a>
+            <a href="#"><img src="Images/youtube.png" alt="YouTube" /></a>
+            <a href="#"><img src="Images/ig.png" alt="Instagram" /></a>
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-line bottom-line"></div>
+    </footer>
+    <script src="HomePage.js"></script>
+  </body>
+</html>

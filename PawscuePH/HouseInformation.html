@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>House Information</title>
+    <link rel="stylesheet" href="Admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+    <div class="sidebar">
+        <div class="nav-logo">
+            <img src="Images/logo-pawscue.png" class="logo-img" alt="Logo" />
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item"><a href="Admin.html" class="nav-link"><i
+                        class="fas fa-chart-pie nav-icon"></i><span>Dashboard</span></a></li>
+            <li class="nav-item"><a href="PetAdopter.html" class="nav-link"><i
+                        class="fas fa-user nav-icon"></i><span>Pet Adopter</span></a></li>
+            <li class="nav-item"><a href="HouseInformation.html" class="nav-link active"><i
+                        class="fas fa-home nav-icon"></i><span>House Information</span></a></li>
+            <li class="nav-item"><a href="SpouseInformation.html" class="nav-link"><i
+                        class="fas fa-user-friends nav-icon"></i><span>Spouse Information</span></a></li>
+            <li class="nav-item"><a href="HouseholdInformation.html" class="nav-link"><i
+                        class="fas fa-users nav-icon"></i><span>Household Information</span></a></li>
+            <li class="nav-item"><a href="AdopterPetInformation.html" class="nav-link"><i
+                        class="fas fa-paw nav-icon"></i><span>Adopter Pets Information</span></a></li>
+            <button class="logout-btn" id = "logoutBtn">Log out</button>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">House Information</h1>
+
+            <div class="controls">
+                <label for="itemsPerPage">Show:</label>
+                <select id="itemsPerPage" class="itemsPerPage">
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <div class="control-group">
+                    <button class="control-btn sort-btn">Sort</button>
+                </div>
+                <div class="controls-info">
+                    <span id="currentSortStatus" style="display: none; margin-left: 10px; font-style: italic;"></span>
+                </div>
+
+                <div class="search-filter">
+                    <button class="filter-btn" id="openFilterBtn">Filter</button>
+                    <div class="search-container">
+                        <input type="text" class="search-box" placeholder="Search here">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="content-section">
+            <div class="table-container">
+                <table class="data-table">
+                    <thead>
+                        <tr>
+                            <th>Adopter Address ID</th>
+                            <th>Zip Code</th>
+                            <th>Home Address</th>
+                            <th>City</th>
+                            <th>State</th>
+                            <th>Housing Status</th>
+                            <th>Home Pet Policy</th>
+                            <th>Window Screens</th>
+                            <th>Home Children Number</th>
+                            <th>Pet Living Area</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Dynamic rows will go here -->
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="pagination">
+                <span class="pagination-text"></span>
+                <!-- The pagination buttons will be dynamically generated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div id="filterModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeFilterBtn">&times;</span>
+            <h2>Filter Options</h2>
+            <form id="filterForm">
+                <div class="filter-group">
+                    <label for="city">City:</label>
+                    <input type="text" id="city" name="city">
+                </div>
+
+                <div class="filter-group">
+                    <label for="state">State:</label>
+                    <input type="text" id="state" name="state">
+                </div>
+
+                <div class="filter-group">
+                    <label for="houseStatus">House Status:</label>
+                    <select id="houseStatus" name="houseStatus">
+                        <option value="">Select Status</option>
+                        <option value="Own">Own</option>
+                        <option value="Rent">Rent</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Allowed Dogs Policy:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="dogsPolicyYes" name="allowedDogsPolicy" value="Yes">
+                        <label for="dogsPolicyYes">Yes</label>
+                        <input type="radio" id="dogsPolicyNo" name="allowedDogsPolicy" value="No">
+                        <label for="dogsPolicyNo">No</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label>Window Screens:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="screensYes" name="windowScreens" value="Yes">
+                        <label for="screensYes">Yes</label>
+                        <input type="radio" id="screensNo" name="windowScreens" value="No">
+                        <label for="screensNo">No</label>
+                    </div>
+                </div>
+
+                <div class="filter-group">
+                    <label for="petHousePolicy">Pet House Policy:</label>
+                    <select id="petHousePolicy" name="petHousePolicy">
+                        <option value="">Select Policy</option>
+                        <option value="Indoors">Indoors</option>
+                        <option value="Outdoors">Outdoors</option>
+                    </select>
+                </div>
+
+                <div class="filter-actions">
+                    <button type="button" class="action-btn apply-btn" id="applyFilterBtn">Apply Filters</button>
+                    <button type="button" class="action-btn clear-btn" id="clearFilterBtn">Clear Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="sortModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeSortBtn">&times;</span>
+            <h2>Sort Options</h2>
+            <form id="sortForm">
+                <div class="filter-group">
+                    <label for="sortColumn">Sort By:</label>
+                    <select id="sortColumn" name="sortColumn">
+                        <option value="adopterAddressId">Adopter Address ID</option>
+                        <option value="homeAddress">Home Address</option>
+                        <option value="city">City</option>
+                        <option value="state">State</option>
+                        <option value="zipcode">Zip Code</option>
+                        <option value="homeChildrenNum">Home Children Number</option>
+                        <option value="housingStatus">Housing Status</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sort Direction:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="sortDirectionAsc" name="sortDirection" value="asc" checked>
+                        <label for="sortDirectionAsc">Ascending</label>
+                        <input type="radio" id="sortDirectionDesc" name="sortDirection" value="desc">
+                        <label for="sortDirectionDesc">Descending</label>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button type="button" class="action-btn apply-btn" id="applySortBtn">Apply Sort</button>
+                    <button type="button" class="action-btn clear-btn" id="clearSortSortBtn">Clear Sort</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="AuthGuard.js"></script>
+    <script src="HouseInformation.js"></script>
+</body>
+
+</html>

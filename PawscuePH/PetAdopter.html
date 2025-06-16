@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pet Adopter</title>
+    <link rel = "stylesheet" href = "Admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+</head>
+<body>
+    <div class="sidebar">
+        <div class="nav-logo"> 
+          <img src="Images/logo-pawscue.png" class="logo-img" alt="Logo" />
+        </div>
+
+        <ul class="nav-menu">
+            <li class="nav-item">
+                <a href="Admin.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-chart-pie"></i></span>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="PetAdopter.html" class="nav-link active">
+                    <span class="nav-icon"><i class="fas fa-user"></i></span>
+                    <span>Pet Adopter</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="HouseInformation.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-home"></i></span>
+                    <span>House Information</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="SpouseInformation.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-user-friends"></i></span>
+                    <span>Spouse Information</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="HouseholdInformation.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-users"></i></span>
+                    <span>Household Information</span>
+                </a>
+            </li>
+            <li class="nav-item">
+                <a href="AdopterPetInformation.html" class="nav-link">
+                    <span class="nav-icon"><i class="fas fa-paw"></i></span>
+                    <span>Adopter Pets Information</span>
+                </a>
+            </li>
+            <button class="logout-btn" id = "logoutBtn">Log out</button>
+        </ul>
+    </div>
+
+    <div class="main-content">
+        <div class="dashboard-header">
+            <h1 class="dashboard-title">Pet Adopter Records</h1>
+        </div>
+        
+        <div class="content-section">
+            <div class="controls">
+                <label for="itemsPerPage">Show: </label>
+                <select class="itemsPerPage" id="itemsPerPage">
+                    <option value="10" selected>10</option>
+                    <option value="20">20</option>
+                    <option value="50">50</option>
+                    <option value="100">100</option>
+                </select>
+                <div class="control-group">
+                    <button class="control-btn sort-btn">Sort</button>
+                </div>
+                <div class="controls-info">
+                    <span id="currentSortStatus" style="display: none; margin-left: 10px; font-style: italic;"></span>
+                </div>
+
+                <div class="search-filter">
+                    <button class="filter-btn" id="openFilterBtn">Filter</button>
+                    <div class="search-container">
+                        <input type="text" class="search-box" placeholder="Search here">
+                        <i class="fas fa-search search-icon"></i>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="data-area">
+                <div class = "table-container"> 
+                    <table class="data-table">
+                        <thead>
+                            <tr>
+                                <th>Adopter ID</th>
+                                <th>Adopter Name</th>
+                                <th>Contact Number</th>
+                                <th>Email Address</th>
+                                <th>Adopter Address ID</th>
+                                <th>Spouse ID</th>
+                                <th>Employment Status</th>
+                                <th>Employer Name</th>
+                                <th>Work Contact Number</th>
+                                <th>Work Address</th>
+                                <th>Working Hours</th>
+                                <th>Pet Alone Hours</th>
+                                <th>Pet Caretaker</th>
+                                </tr>
+                        </thead>
+                        <tbody>
+                            </tbody>
+                    </table>
+                </div>
+            </div>
+        
+            <div class="pagination">
+                <span class="pagination-text"></span>
+                <!-- The pagination buttons will be dynamically generated here by JavaScript -->
+            </div>
+        </div>
+    </div>
+
+    <div id="filterModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeFilterBtn">&times;</span>
+            <h2>Filter Options</h2>
+            <form id="filterForm">
+                <div class="filter-group">
+                    <label for="petCaretaker">Pet Caretaker:</label>
+                    <select id="petCaretaker" name="petCaretaker">
+                        <option value="">Select Caretaker</option>
+                        <option value="Self">Self</option>
+                        <option value="Spouse">Spouse</option>
+                        <option value="Roommate">Roommate</option>
+                    </select>
+                </div>
+                <div class="filter-group">
+                    <label for="adopterStatus">Adopter Status:</label>
+                    <select id="adopterStatus" name="adopterStatus">
+                        <option value="">Select Status</option>
+                        <option value="Working">Working</option>
+                        <option value="Retired">Retired</option>
+                        <option value="Attending School">Attending School</option>
+                        <option value="Homemaker">Homemaker</option>
+                    </select>
+                </div>
+                <div class="filter-actions">
+                    <button type="button" class="action-btn apply-btn" id="applyFilterBtn">Apply Filters</button>
+                    <button type="button" class="action-btn clear-btn" id="clearFilterBtn">Clear Filters</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <div id="sortModal" class="modal">
+        <div class="modal-content">
+            <span class="close-button" id="closeSortBtn">&times;</span>
+            <h2>Sort Options</h2>
+            <form id="sortForm">
+                <div class="filter-group">
+                    <label for="sortColumn">Sort By:</label>
+                    <select id="sortColumn" name="sortColumn">
+                        <option value="adopter.adopterId">Adopter ID</option>
+                        <option value="adopter.adopterName">Adopter Name</option>
+                        <option value="adopter.contactNum">Contact Number</option>
+                        <option value="adopter.emailAddress">Email Address</option>
+                        <option value="adopter.addressDetails.adopterAddressId">Adopter Address ID</option>
+                        <option value="adopter.employmentStatus">Employment Status</option>
+                        <option value="adopter.employerName">Employer Name</option>
+                        <option value="adopter.workContactNum">Work Contact Number</option>
+                        <option value="adopter.workAddress">Work Address</option>
+                        <option value="adopter.workingHrs">Working Hours</option>
+                        <option value="adopter.spouse.spouseId">Spouse ID</option>
+                        <option value="adopter.petAloneHours">Pet Alone Hours</option>
+                        <option value="adopter.petCareTaker">Pet Caretaker</option>
+                    </select>
+                </div>
+
+                <div class="filter-group">
+                    <label>Sort Direction:</label>
+                    <div class="radio-group">
+                        <input type="radio" id="sortDirectionAsc" name="sortDirection" value="asc" checked>
+                        <label for="sortDirectionAsc">Ascending</label>
+                        <input type="radio" id="sortDirectionDesc" name="sortDirection" value="desc">
+                        <label for="sortDirectionDesc">Descending</label>
+                    </div>
+                </div>
+
+                <div class="filter-actions">
+                    <button type="button" class="action-btn apply-btn" id="applySortBtn">Apply Sort</button>
+                    <button type="button" class="action-btn clear-btn" id="clearSortSortBtn">Clear Sort</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="AuthGuard.js"></script>
+    <script src = "Pet Adopter.js"></script>
+</body>
+</html>

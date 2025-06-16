@@ -1,0 +1,277 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: #a9d9ef; /* Light blue background */
+    overflow: hidden; /* Prevent scrollbars */
+}
+
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+}
+
+.wrapper {
+    position: relative;
+    width: 400px;
+    background: #fff;
+    border-radius: 20px;
+    padding: 40px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+.form-header {
+    margin-bottom: 30px;
+}
+
+.titles .title-login {
+    font-size: 32px;
+    font-weight: 700;
+    color: #0f2442; /* Dark blue from your admin panel */
+    text-align: center;
+}
+
+.input-box {
+    position: relative;
+    width: 100%;
+    height: 50px;
+    margin: 30px 0;
+}
+
+.input-box .input-field {
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border-bottom: 2px solid #ccc;
+    padding: 0 35px 0 5px;
+    color: #333;
+    font-size: 16px;
+    transition: border-color 0.3s ease;
+}
+
+.input-box .input-field:focus,
+.input-box .input-field:valid {
+    border-color: #3498db; /* Blue for active/valid state */
+}
+
+.input-box .label {
+    position: absolute;
+    top: 50%;
+    left: 5px;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 16px;
+    pointer-events: none;
+    transition: 0.3s ease;
+}
+
+.input-box .input-field:focus ~ .label,
+.input-box .input-field:valid ~ .label {
+    top: 0;
+    font-size: 12px;
+    color: #3498db;
+}
+
+.input-box .icon {
+    position: absolute;
+    right: 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+    font-size: 20px;
+}
+
+.form-cols {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+
+.form-cols a {
+    color: #3498db;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.form-cols a:hover {
+    color: #2980b9;
+    text-decoration: underline;
+}
+
+.btn-submit {
+    width: 100%;
+    height: 50px;
+    background: #3498db;
+    border: none;
+    outline: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    transition: 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+
+.btn-submit:hover {
+    background: #2980b9;
+}
+
+.btn-submit .bx {
+    font-size: 22px;
+}
+
+/* Modal Overlay Styles (for Forgot Password) */
+.modal-overlay {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+}
+
+.modal-content {
+    background-color: #fefefe;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px; /* Adjust max width for the modal */
+    position: relative;
+    text-align: left; /* Align content inside modal */
+}
+
+.modal-content h2 {
+    color: #0f2442;
+    margin-bottom: 20px;
+    font-size: 28px;
+    text-align: center;
+}
+
+.modal-message {
+    font-size: 15px;
+    color: #555;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.modal-content .input-box {
+    margin-bottom: 20px; /* Adjust spacing for modal inputs */
+}
+
+.modal-content .label {
+    color: #333; /* Darker label color for better contrast in modal */
+    font-weight: 500;
+}
+
+.close-button {
+    color: #aaa;
+    font-size: 32px;
+    font-weight: bold;
+    position: absolute;
+    top: 15px;
+    right: 25px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+.close-button:hover,
+.close-button:focus {
+    color: #333;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 15px;
+    margin-top: 30px;
+}
+
+.action-btn {
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s ease;
+    font-weight: 600;
+}
+
+.apply-btn { /* Used for Verify/Set New Password */
+    background-color: #3498db;
+    color: white;
+    box-shadow: 0 4px 10px rgba(52, 152, 219, 0.2);
+}
+
+.apply-btn:hover {
+    background-color: #2980b9;
+    transform: translateY(-2px);
+}
+
+.clear-btn { /* Used for Cancel */
+    background-color: #6c757d;
+    color: white;
+    box-shadow: 0 4px 10px rgba(108, 117, 125, 0.2);
+}
+
+.clear-btn:hover {
+    background-color: #5a6268;
+    transform: translateY(-2px);
+}
+
+/* Message Box Styling */
+.message-box {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: white;
+    z-index: 1001; /* Above the modal overlay */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    display: none; /* Hidden by default */
+    text-align: center;
+    min-width: 280px;
+}
+
+.message-box.info {
+    background-color: #3498db; /* Blue for info */
+}
+
+.message-box.error {
+    background-color: #e74c3c; /* Red for error */
+}
+
+.message-box.success {
+    background-color: #28a745; /* Green for success */
+}
