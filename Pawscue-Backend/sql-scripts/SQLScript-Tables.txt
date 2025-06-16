@@ -1,0 +1,132 @@
+-- Please read any provided material by the author before execution to avoid execution errors
+
+-- !! FOR ABSOLUTE ACCURRACY USE "Ctrl + Shift + Enter" TO RUN SQL COMMANDS
+
+-- >>>> Database initializaiton Segment
+
+CREATE DATABASE PawscueAdoptions;
+
+USE PawscueAdoptions;
+
+-- >>>> Table creation segment
+
+CREATE TABLE Adopter(
+	AdopterId CHAR (8) PRIMARY KEY NOT NULL UNIQUE, 
+    AdopterName VARCHAR (40) NOT NULL,
+    ContactNum VARCHAR (15) NOT NULL,
+    EmailAddress VARCHAR (50) NOT NULL,
+    AdopterAddressId CHAR (9),
+    SpouseId CHAR (7),
+    EmploymentStatus VARCHAR (20) NOT NULL DEFAULT 'Working' CHECK(
+			EmploymentStatus IN ("Working", "Retired", "Attending School", "Homemaker")
+        ),
+    WorkingHrs INTEGER NOT NULL DEFAULT 0 CHECK(
+			WorkingHrs BETWEEN 0 AND 24
+        ),
+    WorkContactNum VARCHAR (15),
+    EmployerName VARCHAR (40),
+    WorkAddress VARCHAR (100),
+    PetAloneHours INTEGER NOT NULL DEFAULT 0 CHECK(
+			PetAloneHours BETWEEN 0 AND 24
+		),
+    PetCareTaker VARCHAR (8) NOT NULL DEFAULT 'Self' CHECK(
+			PetCareTaker IN ("Self", "Spouse", "Roommate")
+        )
+);
+
+
+CREATE TABLE Spouse(
+	SpouseId CHAR (7) PRIMARY KEY NOT NULL UNIQUE, 
+    SpouseName VARCHAR (40) NOT NULL,
+    WorkingHrs INTEGER NOT NULL DEFAULT 0 CHECK(
+			WorkingHrs BETWEEN 0 AND 24
+        ),
+    WorkContactNum VARCHAR (15),
+    EmployerName VARCHAR (40),
+    WorkAddress VARCHAR (100),
+    AdopterId CHAR (8) NOT NULL
+);
+
+
+CREATE TABLE Adopter_Home_Details(
+    AdopterAddressId CHAR (9) PRIMARY KEY NOT NULL UNIQUE, 
+    Zipcode VARCHAR(4) NOT NULL,
+    HomeAddress VARCHAR(100) NOT NULL,
+    City VARCHAR(50) NOT NULL,
+    State VARCHAR(50) NOT NULL,
+    HousingStatus VARCHAR (6) NOT NULL DEFAULT 'Rent' CHECK(
+			HousingStatus IN ("Own", "Rent", "Other")
+        ),
+	HomePetPolicy VARCHAR(11) NOT NULL DEFAULT 'ALLOWED' CHECK(
+			HomePetPolicy IN ("ALLOWED", "NOT ALLOWED")
+		),
+    WindowScreens BOOLEAN DEFAULT FALSE,
+    HomeChildrenNum INTEGER NOT NULL DEFAULT 0 CHECK(
+			HomeChildrenNum >= 0
+		),
+    PetLivingArea VARCHAR (8) NOT NULL DEFAULT 'Indoors' CHECK(
+			PetLivingArea IN ("Indoors", "Outdoors", "Both")
+        )
+);
+
+
+CREATE TABLE Adopter_Pets(
+    PetId VARCHAR(8) PRIMARY KEY NOT NULL UNIQUE, 
+    PetBreed VARCHAR(25) NOT NULL,
+    PetAge INTEGER NOT NULL DEFAULT 0 CHECK(
+			PetAge >= 0
+		),
+    PetSpayNeuterStatus VARCHAR (8) NOT NULL DEFAULT 'None' CHECK(
+			PetSpayNeuterStatus IN ("Spayed", "Neutered", "None")
+        ),
+    PetYrsOwned INTEGER NOT NULL DEFAULT 0 CHECK(
+			PetYrsOwned >= 0
+		),
+    PetCurrentStatus VARCHAR (8) NOT NULL DEFAULT 'Alive' CHECK(
+			PetCurrentStatus IN ("Alive", "Deceased", "Rehomed")
+        ),
+	PetVaccination BOOLEAN NOT NULL DEFAULT FALSE,
+	AdopterId CHAR (8) NOT NULL
+);
+
+
+ CREATE TABLE Household_Adults(
+    HouseholdAdultId VARCHAR(8) PRIMARY KEY NOT NULL UNIQUE, 
+    AdultName VARCHAR (25) NOT NULL,
+    AdultAllergy BOOLEAN NOT NULL DEFAULT FALSE,
+    WorkContactNum VARCHAR (15),
+    AdultEmployer VARCHAR (40),
+    AdultWorkAddress VARCHAR (100),
+    AdopterId CHAR (8) NOT NULL
+);
+
+
+-- >>>> Foreign Keys Initializaiton Segment
+
+ALTER TABLE Adopter
+ADD CONSTRAINT fk_adopter_to_address
+FOREIGN KEY(AdopterAddressId) REFERENCES adopter_home_details(AdopterAddressId)
+ON DELETE CASCADE;
+
+ALTER TABLE Adopter
+ADD CONSTRAINT fk_adopter_to_spouse
+FOREIGN KEY(SpouseId) REFERENCES Spouse(SpouseId)
+ON DELETE CASCADE;
+
+ALTER TABLE Spouse
+ADD CONSTRAINT fk_spouse_to_adopter
+FOREIGN KEY(AdopterId) REFERENCES Adopter(AdopterId)
+ON DELETE CASCADE;
+
+ALTER TABLE household_adults
+ADD CONSTRAINT fk_adult_to_adopter
+FOREIGN KEY(AdopterId) REFERENCES Adopter(AdopterId)
+ON DELETE CASCADE;
+
+ALTER TABLE adopter_pets
+ADD CONSTRAINT fk_pets_to_adopter
+FOREIGN KEY(AdopterId) REFERENCES Adopter(AdopterId)
+ON DELETE CASCADE;
+
+
+

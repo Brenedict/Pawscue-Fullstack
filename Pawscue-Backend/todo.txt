@@ -1,0 +1,10 @@
+Database:
+1. Fix the constraints for the foreign keys. The relation dependencies are messing with the insertion (disallows it).
+2. Try insertions.
+
+Backend
+1. Build table/relation java file models.
+2. Configure SpringBoot essentials: application.properties, enable JPA in the pom.xml dependencies
+3. Construct methods in the models' respective services to have a custom/automatic logic that generates surrogate keys as the PK.
+4. Test out basic api mapping for requests
+5. Try out POST
