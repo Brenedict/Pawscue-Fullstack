@@ -165,7 +165,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 petage: parseInt(document.getElementById(`petAge_${baseIndex}`)?.value || 0, 10),
                 petspayneuterstatus: document.querySelector(`input[name="spayNeuter_${baseIndex}"]:checked`)?.value || 'None',
                 petyrsowned: parseInt(document.getElementById(`yearsOwned_${baseIndex}`)?.value || 0, 10),
-                petcurrentstatus: document.querySelector(`input[name="petStatus_${baseIndex}"]:checked`)?.value || '',
+                petcurrentstatus: document.querySelector(`input[name="petStatus_${baseIndex}"]:checked`)?.value || 'Alive',
                 petvaccination: document.querySelector(`input[name="vaccinated_${baseIndex}"]:checked`)?.value === "true"
             };
             adopterPets.push(staticPet);
@@ -179,11 +179,12 @@ document.addEventListener('DOMContentLoaded', function() {
                     petid: null,
                     petbreed: document.getElementById(`petBreed_${petIndex}`)?.value || '',
                     petage: parseInt(document.getElementById(`petAge_${petIndex}`)?.value || 0, 10),
-                    petspayneuterstatus: document.querySelector(`input[name="spayNeuter_${petIndex}"]:checked`)?.value || '',
+                    petspayneuterstatus: document.querySelector(`input[name="spayNeuter_${petIndex}"]:checked`)?.value || 'None',
                     petyrsowned: parseInt(document.getElementById(`yearsOwned_${petIndex}`)?.value || 0, 10),
-                    petcurrentstatus: document.querySelector(`input[name="petStatus_${petIndex}"]:checked`)?.value || '',
+                    petcurrentstatus: document.querySelector(`input[name="petStatus_${petIndex}"]:checked`)?.value || Alive,
                     petvaccination: document.querySelector(`input[name="vaccinated_${petIndex}"]:checked`)?.value === "true"
                 };
+                console.log("PET: ", pet)
                 adopterPets.push(pet);
             });
         }
@@ -478,12 +479,12 @@ document.addEventListener('DOMContentLoaded', function() {
             // Static pet (index 0)
             const firstPet = pets[0];
             document.getElementById("petBreed_0").value = firstPet.petbreed || '';
-            document.getElementById("petAge_0").value = firstPet.petage || '';
+            document.getElementById("petAge_0").value = firstPet.petage || 0;
 
             const spay0 = document.querySelector(`input[name="spayNeuter_0"][value="${firstPet.petspayneuterstatus}"]`);
             if (spay0) spay0.checked = true;
 
-            document.getElementById("yearsOwned_0").value = firstPet.petyrsowned || '';
+            document.getElementById("yearsOwned_0").value = firstPet.petyrsowned || 0;
 
             const status0 = document.querySelector(`input[name="petStatus_0"][value="${firstPet.petcurrentstatus}"]`);
             if (status0) status0.checked = true;
@@ -500,13 +501,13 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (breedInput) breedInput.value = pet.petbreed || '';
 
                 const ageInput = newPet.querySelector(`#petAge_${i}`);
-                if (ageInput) ageInput.value = pet.petage || '';
+                if (ageInput) ageInput.value = pet.petage || 0;
 
                 const spayInput = newPet.querySelector(`input[name="spayNeuter_${i}"][value="${pet.petspayneuterstatus}"]`);
                 if (spayInput) spayInput.checked = true;
 
                 const yearsOwnedInput = newPet.querySelector(`#yearsOwned_${i}`);
-                if (yearsOwnedInput) yearsOwnedInput.value = pet.petyrsowned || '';
+                if (yearsOwnedInput) yearsOwnedInput.value = pet.petyrsowned || 0;
 
                 const statusInput = newPet.querySelector(`input[name="petStatus_${i}"][value="${pet.petcurrentstatus}"]`);
                 if (statusInput) statusInput.checked = true;
@@ -845,7 +846,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         deleteSubmissionButton.classList.remove('hidden');
                         
                         
-                        // window.location.href = 'AdoptNow.html';
+                        window.location.href = 'AdoptNow.html';
                         
                     } catch (error) {
                         console.error('Error saving adopterId in appdata:', error);
