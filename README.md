@@ -2,7 +2,7 @@
 
 **PawscuePH** is a dedicated online platform designed to **facilitate the adoption** of deserving **narcotics detection dogs (NDDs)** into loving homes. The website simplifies the adoption process through an intuitive application system, catering to individuals and families looking to provide a retirement home for these animals. **Application submissions will be evaluated** based on how fit they are as a forever-home for these beloved retired working dogs.
 
-For a clear and detailed instruction about the system, please refer to the **PAWSCUEPH-User-Manual.pdf** provided. Jump to **Page 8 Section 3** for details regarding system installation and setup.
+For a clear and detailed instruction about the system, please refer to the 📄 [User Manual »](./PAWSCUEPH-User-Manual). Jump to **Page 8 Section 3** for details regarding system installation and setup.
 
 ___
 
@@ -82,4 +82,4 @@ ___
 
 ___
 
-_For details regarding application installation and setup. Please view the provided user-manual (**PAWSCUEPH-User-Manual.pdf**)_
+_For details regarding application installation and setup. Please view the provided 📄 [User Manual »](./PAWSCUEPH-User-Manual)_
